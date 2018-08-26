@@ -1,0 +1,6 @@
+[centos-sclo-sclo]
+name=CentOS-7 - SCLo sclo
+baseurl=http://mirror.centos.org/centos/7/sclo/$basearch/rh
+gpgcheck=0
+enabled=1
+sslverify=0

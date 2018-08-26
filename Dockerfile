@@ -41,7 +41,7 @@ RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.r
 	&&Rscript -e 'install.packages("Matrix",dependencies=TRUE, repos="https://cran.rstudio.com/")' \
 	&&Rscript -e 'install.packages("SDMTools",dependencies=TRUE, repos="https://cran.rstudio.com/")' 
 
-ADD . .
+ADD . /opt/app-root/src
 #RUN cd /src; pip install -r requirements.txt
 EXPOSE 8080
 USER 1001

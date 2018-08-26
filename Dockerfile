@@ -46,7 +46,7 @@ ADD . /opt/app-root/src
 EXPOSE 8080
 USER 1001
 
-CMD ["python", "/opt/app-root/src/config.py"]
+CMD ["python", "/opt/app-root/src/os-sample-python/config.py"]
 #CMD ["python""]
 
 

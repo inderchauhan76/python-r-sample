@@ -41,12 +41,12 @@ RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.r
 	&&Rscript -e 'install.packages("Matrix",dependencies=TRUE, repos="https://cran.rstudio.com/")' \
 	&&Rscript -e 'install.packages("SDMTools",dependencies=TRUE, repos="https://cran.rstudio.com/")' 
 
-#ADD . /src
+ADD . .
 #RUN cd /src; pip install -r requirements.txt
 EXPOSE 8080
 USER 1001
 
-#CMD ["python", "/src/index.py"]
-CMD ["python""]
+CMD ["python", "/opt/app-root/src/config.py"]
+#CMD ["python""]
 
 

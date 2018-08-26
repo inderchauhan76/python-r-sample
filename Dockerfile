@@ -43,6 +43,7 @@ RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.r
 
 ADD . /opt/app-root/src
 #RUN cd /src; pip install -r requirements.txt
+RUN pip3 install SimpleHTTPServer
 EXPOSE 8080
 COPY index.html /var/run/web/index.html
 

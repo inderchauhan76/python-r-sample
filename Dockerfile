@@ -1,6 +1,10 @@
-#FROM registry.access.redhat.com/rhel7.4
-FROM centos:7
-COPY sclo.repo /etc/yum.repos.d/sclo.repo
+FROM registry.access.redhat.com/rhel7.4
+#FROM centos:7
+#COPY sclo.repo /etc/yum.repos.d/sclo.repo
+WORKDIR /opt/app-root/src
+RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
+RUN yum-config-manager --enable rhel-7-server-optional-rpms
+
 RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setuptools rh-python36-python-pip nss_wrapper \
         httpd24 httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap \
         httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant" && \
@@ -8,7 +12,7 @@ RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setupt
         yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
         rpm -V $INSTALL_PKGS && \
         yum -y clean all --enablerepo='*'
-RUN yum install -y epel-release
+# RUN yum install -y epel-release
 RUN yum install -y R
 RUN cd /usr/bin \
 	&& ln -s /opt/rh/rh-python36/root/usr/bin/idle idle3 \

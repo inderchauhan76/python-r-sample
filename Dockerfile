@@ -44,9 +44,12 @@ RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.r
 ADD . /opt/app-root/src
 #RUN cd /src; pip install -r requirements.txt
 EXPOSE 8080
+#COPY index.html /var/run/web/index.html
+
 USER 1001
 
-CMD ["python", "/opt/app-root/src/os-sample-python/config.py"]
+#CMD cd /var/run/web && python -m SimpleHTTPServer 8080
+CMD ["python3", "/opt/app-root/src/os-sample-python/config.py"]
 #CMD ["python""]
 
 

@@ -13,6 +13,9 @@ RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setupt
         rpm -V $INSTALL_PKGS && \
         yum -y clean all --enablerepo='*'
 # RUN yum install -y epel-release
+RUN yum-config-manager --enable rhel-*-optional-rpms
+RUN yum-config-manager --enable rhel-*-extras-rpms
+
 RUN yum install -y R
 RUN cd /usr/bin \
 	&& ln -s /opt/rh/rh-python36/root/usr/bin/idle idle3 \

@@ -31,7 +31,7 @@ RUN yum install -y readline-devel
 RUN pip3 install rpy2==2.9.4
 RUN yum install -y nlopt
 RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"))' >> .Rprofile
-RUN Rscript -e 'install.packages('nloptr')'
+RUN Rscript -e 'install.packages("nloptr", repos="https://cran.rstudio.com/")'
 RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.rstudio.com/")' \
 	&&Rscript -e 'install.packages("caret",dependencies=TRUE, repos="https://cran.rstudio.com/")' \
 	&&Rscript -e 'install.packages("glmnet",dependencies=TRUE, repos="https://cran.rstudio.com/")' \

@@ -29,7 +29,7 @@ RUN pip3 install --upgrade pip
 RUN pip3 install flask==1.0.2
 RUN yum install -y readline-devel
 RUN pip3 install rpy2==2.9.4
-RUN yum install -y nlopt
+RUN yum install -y nlopt nlopt-devel
 RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"))' >> .Rprofile
 RUN Rscript -e 'install.packages("nloptr", repos="https://cran.rstudio.com/")'
 RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.rstudio.com/")' \

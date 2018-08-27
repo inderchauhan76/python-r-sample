@@ -44,13 +44,13 @@ RUN Rscript -e 'install.packages("nnet",dependencies=TRUE, repos="https://cran.r
 ADD . /opt/app-root/src
 #RUN cd /src; pip install -r requirements.txt
 RUN pip3 install http-here
-EXPOSE 8080
+EXPOSE 8080 5000
 COPY index.html /var/run/web/index.html
 
 USER 1001
 
-CMD cd /var/run/web && python3 -m http-here 8080
-#CMD ["python3", "/opt/app-root/src/os-sample-python/config.py"]
+#CMD cd /var/run/web && python3 -m http-here 8080
+CMD ["python3", "/opt/app-root/src/os-sample-python/wsgi.py"]
 #CMD ["python""]
 
 
